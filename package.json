@@ -1,0 +1,43 @@
+{
+  "name": "eventecho",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "A calendar scheduling app to manage and organize events.",
+  "author": "Ranjita Rai",
+  "dependencies": {
+    "electron-oauth-helper": "^5.1.1",
+    "electron-prompt": "^1.7.0",
+    "express": "^4.21.2",
+    "get-port": "^7.1.0",
+    "googleapis": "^144.0.0",
+    "open": "^10.1.0",
+    "portfinder": "^1.0.32",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8",
+    "get-port": "^6.1.2",
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run electron\"",
+    "server": "http-server ./public -p 8080",
+    "electron": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "eventecho.com",
+    "productName": "EventEcho",
+    "files": ["**/*", "!node_modules/.cache", "!node_modules/electron-builder"],
+    "asar": true,
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico" 
+    },
+    "nsis": {
+      "oneClick": true
+    }
+  }
+}

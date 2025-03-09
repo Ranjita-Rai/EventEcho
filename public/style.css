@@ -1,0 +1,179 @@
+body {
+  font-family: Arial, sans-serif;
+  padding-top: 60px;
+}
+#events {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* max-width: 1000px; */
+}
+th,
+td {
+  border: 1px solid #dedede;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  box-shadow: 0px 8px 16px 0px rgba(94, 82, 82, 0.2);
+}
+th {
+  /* background-color: #f2f2f2; */
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+h1,
+h3 {
+  text-align: center;
+}
+#authorizeBtn {
+  background-color: #34e73d;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0px 8px 16px 0px rgba(94, 82, 82, 0.2);
+}
+#authorizationUI {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+#TodayButton {
+  background-color: #34e73d;
+  color: #000;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 10px;
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(94, 82, 82, 0.2);
+}
+/* This will fix the .set navbar at the top */
+.set {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 10px;
+  height: 50px;
+  z-index: 1000;
+}
+.setting {
+  position: relative;
+  display: inline-block;
+}
+.setting:hover #settingsMenu {
+  display: block;
+}
+#settings {
+  /* padding: 10px; */
+  cursor: pointer;
+  width: 40px;
+  height: 35px;
+}
+#settingsMenu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(94, 82, 82, 0.2);
+  /* z-index: 1; */
+}
+
+#settingsMenu button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  border: 0.5px solid hsla(0, 0%, 89%, 0.927);
+  border-collapse: collapse;
+}
+#settingsMenu button:hover {
+  background-color: #41d119;
+}
+body.dark-mode {
+  background-color: #333;
+  color: white;
+}
+body.dark-mode #settingsMenu {
+  background: #218838;
+}
+body.dark-mode #settingsMenu button {
+  color: white;
+}
+body.dark-mode #settingsMenu button:hover {
+  background-color: #41d119;
+}
+
+#calendarInputContainer {
+  display: none; /* Hidden initially */
+  margin-top: 10px;
+  padding: 10px;
+  background: #ddd;
+  border-radius: 5px;
+}
+
+#calendarIdInput {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#setCalendarIdBtn {
+  width: 100%;
+  padding: 5px;
+  background: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+#setCalendarIdBtn:hover {
+  background: #218838;
+}
+/* .addCalendar:hover #calendarInputContainer {
+    display: block;
+} */
+
+.Event-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.Event-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  color: black;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(94, 82, 82, 0.2);
+}
+#event button:hover {
+  background-color: #41d119;
+}
+.active {
+  background-color: #41d119;
+  color: white;
+}

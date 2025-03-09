@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoriScheduler</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <div id="eventsUI">
+        <header class="set">
+            <div class="setting">
+                <button id="settings">
+                    <img src="settings-icon.png" alt="Settings" width="20" height="20">
+                </button>
+
+                <div id="settingsMenu">
+                    <button id="login" onclick="authorizeUser()" width="20" height="20">Login</button>
+
+                    <button id="addCalendarBtn" onclick="toggleCalendarInput()">Add Calendar ID</button>
+                    <!-- Calendar ID Input (Hidden Initially) -->
+                    <div id="calendarInputContainer">
+                        <input type="text" id="calendarIdInput" placeholder="Enter Calendar ID">
+                        <button id="setCalendarIdBtn" onclick="setCalendarId()">Set Calendar ID</button>
+                    </div>
+                    <button id="logout" onclick="logoutUser()" width="20" height="20">Logout</button>
+                    <button id="darkmode" onclick="toggleDarkMode()">
+                        <img id="darkmode-icon" src="darkmode-icon.png" alt="Dark Mode" width="20" height="20">
+                    </button>
+                </div>
+            </div>
+            <div class="TodayDate">
+                <div id="TodayButton">date</div>
+            </div>
+        </header>
+        <h1 id="calendarTitle">Calendar Events</h1>
+        <div class="Event-buttons">
+            <div id="event">
+                <button id="previousBtn" onclick="showPreviousEvents()">Previous</button>
+                <button id="upcomingBtn" class="active" onclick="showTodayAndUpcomingEvents()">Upcoming</button>
+            </div>
+        </div>
+        <div id="events">
+            <table id="events-table" style="width:100%;" border="1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>StartDate</th>
+                        <th>EndDate</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Event rows will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br><br>
+    <hr>
+
+    <!-- Authorization UI -->
+    <div id="authorizationUI">
+        <h3>Please click the 'authorize' button to access Google Calendar events</h3>
+        <button id="authorizeBtn" onclick="authorizeUser()">Authorize</button>
+    </div>
+
+    <script src="../renderer.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
