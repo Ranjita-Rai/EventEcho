@@ -1,0 +1,2 @@
+# EventEcho
+Desktop application
