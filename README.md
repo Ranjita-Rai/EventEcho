@@ -1,4 +1,4 @@
-# EventEcho(Desktop Application) using Electron js
+# EventEcho
 1. Go to google cloud console and create api and client (desktop client) and download credentials in json format
 2. Add that json file in project
 3. open terminal and write command to install module :
