@@ -9,5 +9,5 @@
 8. npm install googleapis
 9. npx electron-builder --win (cmd ->run as administrator and run this command for .exe file)
 you can change your application name(product name) in package.json
-10. inside of dist folder yo can see the setup application and run it and it opens the application which is actually located in dist/win-unpacked folder
+10. inside of dist folder you can see the setup application and run it and it opens the application which is actually located in dist/win-unpacked folder
 11. And you can share its setup app to other device and use this app (no need to other files and folders)
