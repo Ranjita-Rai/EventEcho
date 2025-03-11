@@ -146,6 +146,15 @@ ipcMain.on("set-calendar-id", (event, calendarId) => {
   console.log("Calendar ID updated to:", currentCalendarId);
 });
 
+ipcMain.on("clear-calendar-id", (event) => {
+  currentCalendarId = "primary"; // Reset to default Calendar ID
+  console.log("Calendar ID reset to default:", currentCalendarId);
+});
+
+ipcMain.on("fetch-default-calendar-events", (event) => {
+  fetchEvents("upcoming"); // Fetch upcoming events for the default Calendar ID
+});
+
 async function authorize() {
   const { client_secret, client_id, redirect_uris } = credentials.installed; // Use desktop client credentials
   const dynamicPort = await portfinder.getPortPromise(); // Find an available port dynamically

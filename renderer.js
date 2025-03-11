@@ -4,6 +4,8 @@ ipcRenderer.on("update-calendar-title", (event, calendarName) => {
   document.getElementById("calendarTitle").innerText = calendarName;
 });
 
+
+
 // Listen for updated events from the main process
 ipcRenderer.on("update-events", (event, events) => {
   renderEvents(events);

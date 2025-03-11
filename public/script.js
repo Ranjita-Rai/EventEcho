@@ -59,20 +59,13 @@ getTodayDate();
 
 // Function to handle the authorization process
 function authorizeUser() {
+  //Clear the calendar ID value
+ const calendarIdInput = document.getElementById("calendarIdInput");
+ if (calendarIdInput) {
+   calendarIdInput.value = ""; // Reset calendar ID input to empty
+ }  
+ ipcRenderer.send("clear-calendar-id");
   ipcRenderer.send("authorize"); // Send authorization request to main process
-}
-
-// Function to handle logout and redirect to the authorization browser
-function logoutUser() {
-  document.getElementById("authorizationUI").style =
-    "display: block; text-align: center; margin-top: 20px;"; // Center the authorization UI
-  document.getElementById("eventsUI").style.display = "block"; // show events UI
-  document.getElementById("events").style.display = "block"; // show events table
-  document.getElementsByTagName("tbody")[0].innerHTML = ""; // Clear events table
-  document.getElementById("calendarTitle").innerText = "Calendar Events"; // Reset calendar title
-  document.getElementById("previousBtn").disabled = true;
-  document.getElementById("upcomingBtn").disabled = true;
-  setActiveButton(null); // Reset active button
 }
 
 // Handle authorization success
@@ -84,7 +77,7 @@ ipcRenderer.on("authorization-success", () => {
   document.getElementById("previousBtn").disabled = false;
   document.getElementById("upcomingBtn").disabled = false;
   setActiveButton("upcomingBtn"); // Upcoming button as active
-
+  ipcRenderer.send("fetch-default-calendar-events");
   fetchEvents();
 });
 
@@ -110,4 +103,22 @@ function setCalendarId() {
   } else {
     alert("Please enter a valid Calendar ID");
   }
+}
+ // Function to handle logout and redirect to the authorization browser
+function logoutUser() {
+  document.getElementById("authorizationUI").style =
+    "display: block; text-align: center; margin-top: 20px;"; // Center the authorization UI
+  document.getElementById("eventsUI").style.display = "block"; // show events UI
+  document.getElementById("events").style.display = "block"; // show events table
+  document.getElementsByTagName("tbody")[0].innerHTML = ""; // Clear events table
+  document.getElementById("calendarTitle").innerText = "Calendar Events"; // Reset calendar title
+  document.getElementById("previousBtn").disabled = true;
+  document.getElementById("upcomingBtn").disabled = true;
+ // Clear the calendar ID value
+ const calendarIdInput = document.getElementById("calendarIdInput");
+ if (calendarIdInput) {
+   calendarIdInput.value = ""; // Reset calendar ID input to empty
+ }  
+ ipcRenderer.send("clear-calendar-id");
+ setActiveButton(null); // Reset active button
 }
